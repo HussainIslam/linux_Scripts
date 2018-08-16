@@ -1,0 +1,9 @@
+#!/bin/bash
+
+grep -i "$1" cars
+
+if [ $? != 0 ]
+then 
+	echo "Sorry, $1 is not in the cars file" >&2
+	exit 1
+fi

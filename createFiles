@@ -1,0 +1,25 @@
+#!/bin/bash
+
+file=1
+
+if [ $# -eq 0 ]
+then
+	echo "USAGE: createFiles num-of-Files"
+else
+	if [ $1 -lt 5 ]
+	then
+		echo "Setting the defult number to 5"
+		numOfFiles=5
+	else
+		numOfFiles=$1
+	fi
+
+	while [ $file -le $numOfFiles ]
+	do
+		echo "This file$file.txt was created on $(date)" > "file$file.txt"
+		((file++))
+	done
+	
+
+fi
+
