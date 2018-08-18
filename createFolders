@@ -1,10 +1,11 @@
 #!/bin/bash
-
+#this is a script to create folders
 names=`ls -l /mnt/d/Books/gamesProgramming  | grep ".pdf" | awk '{print $9}' | awk -F. '{print $1}'`
 
 
 
 for name in $names
 do
+	$(mkdir $name)
 	$(mv $name* $name)	
 done
