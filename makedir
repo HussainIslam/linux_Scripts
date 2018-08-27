@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#make multiple directories with the same name and a number at the end
+#the structure of the command is: makedir <name of the directories> <maximum number>
+#after the command is executed it will create one or more directories with <name of the directory> and
+#put a number from <maximum number> to 1.
+
+folder=$1
+number=$2
+
+if [ "$#" -lt 2 ]
+then
+	echo "ERROR: Please enter two parameters for the command to execute."
+	echo "The structure of the function should be: makedir <name> <max sequence>"
+	exit 1
+fi
+
+if [ "$2" -lt 1 ]
+then
+	echo "ERROR: Please enter a maximum number that is more than 0"
+	echo "The structure of the function should be: makedir <name> <max sequence>"
+fi
+
+while [ $number -gt 0 ]
+do
+	#echo "$folder $number"
+	$(mkdir "$folder$number")
+	((number--))
+done
+
+exit 0
